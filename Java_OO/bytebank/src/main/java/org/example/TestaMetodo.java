@@ -9,5 +9,13 @@ public class TestaMetodo {
         System.out.println( conta1.saldo);
         conta1.Saca(50);
         System.out.println(conta1.saldo );
+
+
+        Conta contaJoao = new Conta();
+        contaJoao.Depositar(1000);
+
+        contaJoao.Transfere(500,conta1);
+        System.out.println( contaJoao.saldo);
+        System.out.println( conta1.saldo);
     }
 }
