@@ -1,7 +1,7 @@
 package org.example;
 
 public class Conta {
-    double saldo;
+   private double saldo;
     int agencia;
     int numero;
     Cliente titular;
@@ -24,10 +24,11 @@ if(this.saldo >=valor){
     this.saldo-= valor;
     destino.Depositar(valor);
     return true;
-}else{
+}
     return false;
 }
-}
 
-
+    public double exibeSaldo() {
+        return this.saldo;
+    }
 }

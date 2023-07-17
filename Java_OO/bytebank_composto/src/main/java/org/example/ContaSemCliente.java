@@ -3,7 +3,7 @@ package org.example;
 public class ContaSemCliente {
     public static void main(String[] args) {
         Conta contaPedro =  new Conta();
-        System.out.println(contaPedro.saldo);
+        System.out.println(contaPedro.exibeSaldo());
 
         contaPedro.titular = new Cliente();
         System.out.println(contaPedro.titular);
