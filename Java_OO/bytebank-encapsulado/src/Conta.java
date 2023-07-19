@@ -1,9 +1,10 @@
-package org.example;
+
+
 
 public class Conta {
    private double saldo;
     int agencia;
-    int numero;
+   private int numero;
     Cliente titular;
 
     public void Depositar(double valor) {
@@ -31,5 +32,13 @@ if(this.saldo >=valor){
     public double getSaldo() {
 
         return this.saldo;
+    }
+    
+    public int getNumero() {
+    	return this.numero;
+    }
+    
+    public void setNumero(int novoNumero) {
+    	this.numero = novoNumero;
     }
 }

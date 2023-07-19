@@ -8,6 +8,6 @@ public class TesteNegativo {
 
        conta.Saca(300);
 
-        System.out.println(conta.exibeSaldo());
+        System.out.println(conta.getSaldo());
     }
 }
