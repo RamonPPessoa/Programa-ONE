@@ -3,7 +3,7 @@ public class TestandoValores {
 
 	public static void main(String[] args) {
 		
-		int total = 0; // recomendado zerar variavel local
+		//int total = 0; // recomendado zerar variavel local
 	
 		Conta conta = new Conta(9999,6666);
 		
