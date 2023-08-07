@@ -2,14 +2,14 @@
 public class TestandoFuncionario {
 
 	public static void main(String[] args) {
-		 Funcionario fun1 = new Funcionario();
+		 Gerente g1 = new Gerente();
 		 
-		 fun1.setNome("Paula Silva");
-		 fun1.setCpf("2222555223");
-		 fun1.setSalario(2500.00);
+         g1.setNome("Paula Silva");
+		 g1.setCpf("2222555223");
+		 g1.setSalario(2500.00);
 		 
-		System.out.println(fun1.getNome());
-		System.out.println(fun1.getBonificacao());
+		System.out.println(g1.getNome());
+		System.out.println(g1.getBonificacao());
 		
 		//fun1.salario = 400.0;
 

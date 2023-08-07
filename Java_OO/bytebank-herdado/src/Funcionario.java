@@ -1,4 +1,4 @@
-
+// não pode instanciar dessa clase
 public abstract class Funcionario {
 	
 	private String nome;
@@ -7,11 +7,8 @@ public abstract class Funcionario {
 	
 	
 	
-	
-	public double getBonificacao() {
-		
-		return this.salario * 0.05;
-	}
+	// metodo sem corpo,sem implementações
+	public abstract double getBonificacao();
 	
 	public String getNome() {
 		return nome;
