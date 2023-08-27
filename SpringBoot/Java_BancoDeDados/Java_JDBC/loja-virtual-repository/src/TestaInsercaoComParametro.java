@@ -6,50 +6,43 @@ import java.sql.Statement;
 
 public class TestaInsercaoComParametro {
 
-	public static void main(String[] args)throws SQLException {
-
+	public static void main(String[] args) throws SQLException {
 		ConnectionFactory factory = new ConnectionFactory();
-		Connection connection = factory.recuperaConexao();
-		connection.setAutoCommit(false);
-		
-		try {
-			
-			PreparedStatement stm = connection.prepareStatement("INSERT INTO PRODUTO(nome,descricao)VALUES(?, ?)",Statement.RETURN_GENERATED_KEYS);
-			adcionarVariavel("Smart TV", "52 polegadas", stm);
-			adcionarVariavel("Notebook", "samsung windows 11, 8 Gb,HD 1 TB", stm);
-			
-			connection.commit();
-			
-			stm.close();
-			connection.close();
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Rollback sendo executado");
-			connection.rollback();
+		try(Connection connection = factory.recuperaConexao()){
+
+			connection.setAutoCommit(false);
+
+			try (PreparedStatement stm = 
+					connection.prepareStatement("INSERT INTO PRODUTO (nome, descricao) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+					){
+				adcionarVariavel("Smart TV", "52 polegadas", stm);
+				adcionarVariavel("Notebook", "samsung windows 11, 8 Gb,HD 1 TB", stm);
+				connection.commit();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("ROLLBACK EXECUTADO");
+				connection.rollback();
+			}
 		}
-		
-		
-		
-		
-		
-}
+	}
 
 	private static void adcionarVariavel(String nome, String descricao, PreparedStatement stm) throws SQLException {
-		stm.setString(1,nome);
-		stm.setString(2,descricao);
-		
-		
-		if(nome.equals("Notebook")) { // no lugar do equals poderia colocar o trim
-			throw new RuntimeException("Não é possivel adicionar esse produto");
+		stm.setString(1, nome);
+		stm.setString(2, descricao);
+
+		if(nome.equals("Notebook")) {// no lugar do equals pode usar o trim
+			throw new RuntimeException("N�o foi poss�vel adicionar o produto");
 		}
-		stm.execute(); 
-		
-		ResultSet rst = stm.getGeneratedKeys();
-		while(rst.next()) {
-			Integer id = rst.getInt(1);
-			System.out.println(" O id criado foi o: " + id);
+
+		stm.execute();
+
+		try(ResultSet rst = stm.getGeneratedKeys()){
+			while(rst.next()) {
+				Integer id = rst.getInt(1);
+				System.out.println("O id criado foi: " + id);
+			}
 		}
-		rst.close();
 	}
-	
-}	
+}
+
+
