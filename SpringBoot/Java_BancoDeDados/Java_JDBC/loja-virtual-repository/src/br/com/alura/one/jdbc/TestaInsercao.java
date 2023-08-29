@@ -1,3 +1,4 @@
+package br.com.alura.one.jdbc;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Connection;
