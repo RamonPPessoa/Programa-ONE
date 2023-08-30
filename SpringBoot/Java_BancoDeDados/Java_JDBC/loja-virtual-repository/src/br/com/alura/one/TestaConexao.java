@@ -9,12 +9,11 @@ public class TestaConexao {
 
 	public static void main(String[] args) throws SQLException {
 
-		Connection con = DriverManager.
-				getConnection("jdbc:mysql://localhost/loja_virtual?useTimezone=true&serverTimezone=UTC", "root", "Rhamon071147!");
-		
+		ConnectionFactory connectionFactory = new ConnectionFactory();
+		Connection connection = connectionFactory.recuperarConexao();
 		System.out.println("Fechando conexao !");
 
-		con.close();
+		connection.close();
 	}
 
 }

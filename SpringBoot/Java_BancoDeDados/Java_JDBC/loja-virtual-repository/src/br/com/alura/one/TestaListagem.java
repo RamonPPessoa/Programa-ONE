@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class TestaListagem {
+	
+	public static void main(String[] args)throws SQLException{
 
-	public static void main(String[] args) throws SQLException {
-		Connection connection =
-				DriverManager.getConnection("jdbc:mysql://localhost/loja_virtual?useTimezone=true&serverTimezone=UTC", "root", "Rhamon071147!");
-
+	ConnectionFactory connectionFactory = new ConnectionFactory();
+	Connection connection = connectionFactory.recuperarConexao();
 		Statement stm = connection.createStatement();
 		boolean resultado = stm.execute("SELECT * FROM PRODUTO");
 
@@ -25,5 +25,6 @@ public class TestaListagem {
 			System.out.println(descricao);
 		}
 	}
+
 	
 }
