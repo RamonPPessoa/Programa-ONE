@@ -22,7 +22,7 @@ public class TestaInsercaoComParametro {
 				connection.commit();
 			} catch (Exception e) {
 				e.printStackTrace();
-				System.out.println("ROLLBACK EXECUTADO");
+				System.out.println("ROLLBACK EXECUTADO !!");
 				connection.rollback();
 			}
 		}
