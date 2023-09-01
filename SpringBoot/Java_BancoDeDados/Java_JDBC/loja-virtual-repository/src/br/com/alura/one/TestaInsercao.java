@@ -2,6 +2,9 @@ package br.com.alura.one;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import br.com.alura.one.factory.ConnectionFactory;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 

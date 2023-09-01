@@ -1,4 +1,4 @@
-package br.com.alura.one;
+package br.com.alura.one.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
