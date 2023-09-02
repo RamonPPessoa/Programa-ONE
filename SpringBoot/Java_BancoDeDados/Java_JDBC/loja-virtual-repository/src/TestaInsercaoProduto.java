@@ -3,10 +3,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import br.com.alura.one.modelo.Produto;
-
 
 import br.com.alura.one.factory.ConnectionFactory;
+import br.com.alura.one.modelo.Produto;
 
 
 public class TestaInsercaoProduto {
@@ -23,7 +22,6 @@ public class TestaInsercaoProduto {
 				
 				pstm.setString(1, cama.getNome());
 				pstm.setString(2,cama.getDescricao());
-				
 				pstm.execute();
 				
 				try(ResultSet rst = pstm.getGeneratedKeys()){
