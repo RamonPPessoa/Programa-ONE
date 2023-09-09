@@ -17,7 +17,7 @@ public class Produto {
 
     private LocalDate dataCadastro = LocalDate.now();
 
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
     private Categoria categoria;
 
 
